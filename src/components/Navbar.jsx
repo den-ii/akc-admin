@@ -59,15 +59,18 @@ const Navbar = () => {
                   <TfiClose size={20} />
                 </div>
               </div>
-              <NavLink to="/" className="my-3 text-xl">
+              <NavLink to="/" className="my-3 text-xl" onClick={() => setNav(false)}>
                 All Products
               </NavLink>
-              <NavLink to="/addProduct" className="my-3 text-xl">
+              <NavLink to="/addProduct" className="my-3 text-xl"
+              onClick={() => setNav(false)}
+              >
                 Add Products
               </NavLink>
               <p
                 className="my-3 text-xl hover:text-red-500 cursor-pointer"
-                onClick={() => handleUser(false)}
+                onClick={() => 
+                  handleUser(false)}
               >
                 Log Out
               </p>

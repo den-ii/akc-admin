@@ -39,7 +39,7 @@ const SignIn = () => {
   }
   return (
     <div>
-      <div className="h-[100vh] flex flex-col justify-center">
+      <div className="h-[100vh] px-3 flex flex-col justify-center">
         <form
           className="max-w-[800px] h-[250px] mx-auto border-2 border-dotted border-blue-800 py-5 px-14 mb-10 rounded-md"
           onSubmit={handleSignIn}
