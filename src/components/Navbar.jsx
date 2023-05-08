@@ -21,7 +21,11 @@ const Navbar = () => {
     <>
       <header className="bg-white nav px-3 fixed top-0 left-0 right-0 w-full">
         <nav className="flex  h-16 items-center justify-between text-gray-600">
-          <img src="/logo.png" className="w-12" onClick={() => navigate("/")} />
+          <img
+            src="/logo.png"
+            className="w-12 cursor:pointer"
+            onClick={() => navigate("/")}
+          />
           {user && (
             <div
               className="block md:hidden text-blue-700 font-bold"
@@ -59,18 +63,23 @@ const Navbar = () => {
                   <TfiClose size={20} />
                 </div>
               </div>
-              <NavLink to="/" className="my-3 text-xl" onClick={() => setNav(false)}>
+              <NavLink
+                to="/"
+                className="my-3 text-xl"
+                onClick={() => setNav(false)}
+              >
                 All Products
               </NavLink>
-              <NavLink to="/addProduct" className="my-3 text-xl"
-              onClick={() => setNav(false)}
+              <NavLink
+                to="/addProduct"
+                className="my-3 text-xl"
+                onClick={() => setNav(false)}
               >
                 Add Products
               </NavLink>
               <p
                 className="my-3 text-xl hover:text-red-500 cursor-pointer"
-                onClick={() => 
-                  handleUser(false)}
+                onClick={() => handleUser(false)}
               >
                 Log Out
               </p>

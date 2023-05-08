@@ -23,6 +23,7 @@ const defaultProduct = {
   category: "hand bags",
   image: "",
   carousel: [],
+  top_position: false,
   dimensions: "",
   price: "",
   bulk_price: "",
@@ -226,6 +227,20 @@ const EditProduct = () => {
             id="carousel"
             onChange={(e) => handleImageChange(e)}
           />
+          <label htmlFor="top_position" className="w-full block mt-3">
+            Top-Position:
+          </label>
+          <select
+            name="top_position"
+            id="top_position"
+            className="w-full p-2 border border-gray-700 focus:outline-blue-700 rounded-md"
+            value={product.top_position}
+            onChange={(e) => handleChange(e)}
+          >
+            <option value={false}>false</option>
+            <option value={true}>true</option>
+          </select>
+
           <label htmlFor="dimensions" className="w-full block mt-3">
             Dimensions:
           </label>
