@@ -36,25 +36,21 @@ const AddProduct = () => {
   const handleChange = (e) => {
     let { name, value } = e.target;
     if (name.includes("price") && value.length) value = Number(value);
-    console.log("name", name, typeof value);
     setProduct({ ...product, [name]: value });
-    console.log(product);
   };
   const productsCollectionRef = collection(db, "products");
 
   const getProducts = async () => {
     const data = await getDocs(productsCollectionRef);
-    const product = data.docs
+    const productfound = data.docs
       .map((doc) => ({ ...doc.data(), id: doc.id }))
       .find((x) => x.name == product.name);
-    return product;
+    return productfound;
   };
   const handleImageChange = (e) => {
     const { name } = e.target;
     const file = e.target.files[0];
-    console.log(file);
     const folder = name === "image" ? "images" : "carousels";
-    console.log(folder);
     const storageRef = ref(storage, `${folder}/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
     uploadTask.on(
@@ -78,8 +74,6 @@ const AddProduct = () => {
               ...product,
               carousel: [...product.carousel, downloadURL],
             });
-            console.log(downloadURL);
-            console.log(product);
           }
           // toast.success("Image uploaded successfully.");
         });
@@ -109,12 +103,11 @@ const AddProduct = () => {
       error();
     }
   }
-  console.log(product);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     const find = getProducts();
-    if (find) {
+    if (find == undefined) {
       info("Product is already available");
       return setLoading(false);
     }
@@ -305,13 +298,16 @@ const AddProduct = () => {
               "Save Product"
             ) : (
               <Oval
-                ariaLabel="loading-indicator"
-                height={30}
-                width={30}
-                strokeWidth={1}
-                strokeWidthSecondary={2000}
-                color="white"
-                secondaryColor="red"
+                height={40}
+                width={40}
+                color="#fff"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel="oval-loading"
+                secondaryColor="#1D4ED8"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
               />
             )}
           </button>

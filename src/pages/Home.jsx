@@ -80,7 +80,6 @@ const Home = () => {
     }
 
     if (filterValues.price.length) {
-      console.log(filterValues.price);
       dummyProducts = dummyProducts.filter(
         (product) => product.price <= +filterValues.price
       );
@@ -95,7 +94,6 @@ const Home = () => {
     setFilteredProducts(products);
     setFilter(false);
   }
-  console.log(modal);
   function handleShowProduct(id) {
     setModal(true);
     const temp = products.find((product) => product.id === id);
@@ -122,12 +120,11 @@ const Home = () => {
       error();
     }
   }
-  console.log("c", currentPage);
   return (
     <main className="p-3">
       {loading ? (
         <div className="flex flex-col h-[100vh] justify-center items-center">
-          <Oval
+          {/* <Oval
             ariaLabel="loading-indicator"
             height={100}
             width={100}
@@ -135,6 +132,18 @@ const Home = () => {
             strokeWidthSecondary={2000}
             color="rgb(29 78 216)"
             secondaryColor="red"
+          /> */}
+          <Oval
+            height={100}
+            width={100}
+            color="#fff"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+            ariaLabel="oval-loading"
+            secondaryColor="#1D4ED8"
+            strokeWidth={2}
+            strokeWidthSecondary={2}
           />
         </div>
       ) : (

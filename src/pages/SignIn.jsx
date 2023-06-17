@@ -20,7 +20,6 @@ const SignIn = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
         handleUser(true);
         success("Welcome, Admin");
         setTimeout(() => navigate("/"), 500);
@@ -74,14 +73,26 @@ const SignIn = () => {
               "Sign In"
             ) : (
               <Oval
-                ariaLabel="loading-indicator"
                 height={30}
                 width={30}
-                strokeWidth={1}
-                strokeWidthSecondary={2000}
-                color="white"
-                secondaryColor="red"
+                color="#fff"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel="oval-loading"
+                secondaryColor="#1D4ED8"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
               />
+              // <Oval
+              //   ariaLabel="loading-indicator"
+              //   height={30}
+              //   width={30}
+              //   strokeWidth={1}
+              //   strokeWidthSecondary={2000}
+              //   color="white"
+              //   secondaryColor="red"
+              // />
             )}
           </button>
         </form>

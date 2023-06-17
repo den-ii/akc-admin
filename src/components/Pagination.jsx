@@ -20,7 +20,6 @@ const Pagination = ({
     setArr(new Array(totalPaginate).fill(1));
     setTotalPages(data.length / itemsPerPage);
   }, [startItem, data, totalPaginate]);
-  console.log(arr);
 
   const paginateNext = () => {
     setCurrentPage(currentPage + 1);
@@ -30,7 +29,6 @@ const Pagination = ({
       setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
     }
   };
-  console.log(currentPage);
 
   const paginatePrev = () => {
     setCurrentPage(currentPage - 1);

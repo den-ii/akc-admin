@@ -9,7 +9,6 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("location: ", location);
   const pathname = location.pathname;
   useEffect(() => {
     if (!user) {
@@ -53,7 +52,10 @@ const Navbar = () => {
         </nav>
         {nav && user && (
           <div className="block md:hidden">
-            <div className="fixed top-0 bottom-0 h-[100vh] left-0 w-full bg-gray-500 opacity-20"></div>
+            <div
+              className="fixed top-0 bottom-0 h-[100vh] left-0 w-full bg-gray-500 opacity-20"
+              onClick={() => setNav(false)}
+            ></div>
             <div className="fixed flex flex-col px-5 py-5 top-0 bottom-0 right-0 w-9/12 h-[100vh] bg-white">
               <div className="mb-5 flex justify-end">
                 <div

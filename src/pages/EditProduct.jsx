@@ -59,9 +59,7 @@ const EditProduct = () => {
   const handleChange = (e) => {
     let { name, value } = e.target;
     if (name.includes("price") && value.length) value = Number(value);
-    console.log("name", name, typeof value);
     setProduct({ ...product, [name]: value });
-    console.log(product);
   };
   const handleImageChange = (e) => {
     const { name } = e.target;
@@ -90,8 +88,6 @@ const EditProduct = () => {
               ...product,
               carousel: [...product.carousel, downloadURL],
             });
-            console.log(downloadURL);
-            console.log(product);
           }
           // toast.success("Image uploaded successfully.");
         });
@@ -306,14 +302,26 @@ const EditProduct = () => {
               "Update Product"
             ) : (
               <Oval
-                ariaLabel="loading-indicator"
-                height={30}
-                width={30}
-                strokeWidth={1}
-                strokeWidthSecondary={2000}
-                color="white"
-                secondaryColor="red"
+                height={40}
+                width={40}
+                color="#fff"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel="oval-loading"
+                secondaryColor="#1D4ED8"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
               />
+              // <Oval
+              //   ariaLabel="loading-indicator"
+              //   height={30}
+              //   width={30}
+              //   strokeWidth={1}
+              //   strokeWidthSecondary={2000}
+              //   color="white"
+              //   secondaryColor="red"
+              // />
             )}
           </button>
         </form>
