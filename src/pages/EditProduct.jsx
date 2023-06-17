@@ -122,9 +122,10 @@ const EditProduct = () => {
     const docRef = await setDoc(doc(db, "products", id), product);
     if (docRef) {
       setLoading(false);
-      return success();
+      return error();
     }
-    return error();
+    setLoading(false);
+    return success();
   };
   const signal =
     imageTransfer < 45

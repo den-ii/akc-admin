@@ -9,7 +9,7 @@ import { Oval } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import ProductModal from "../components/ProductModal";
 
-import { error } from "../components/utils";
+import { error, info, success } from "../components/utils";
 import FilteredProducts from "../components/FilteredProducts";
 import Pagination from "./../components/Pagination";
 const defaultFilterValues = {
@@ -27,6 +27,7 @@ const Home = () => {
   const [filter, setFilter] = useState(false);
   const [modal, setModal] = useState(false);
   const length = filteredProducts.length;
+  // const deleteButtonDisabled = false
   const [productModal, setProductModal] = useState({
     name: "",
     category: "",
@@ -105,6 +106,7 @@ const Home = () => {
   }
   async function handleDelete(e, id, image, carousel) {
     e.stopPropagation();
+    info("Deleting...");
     try {
       await deleteDoc(doc(db, "products", id));
       const storageRef = ref(storage, image);
@@ -113,6 +115,7 @@ const Home = () => {
         const storageRef = ref(storage, image);
         await deleteObject(storageRef);
       });
+      success("Successful Delete");
       getProducts();
       setModal(false);
     } catch (err) {
